@@ -1,0 +1,36 @@
+﻿# ==========================================================
+# Rabbit Hole Modular - Entorno de Desarrollo (RECUERDO)
+# ==========================================================
+# Python Version: 3.13.5 (64-bit)
+# OS: Windows (v.1943)
+# ----------------------------------------------------------
+# GPU Info:
+# OpenGL version: 3.3.0 NVIDIA 581.80
+# GLSL version: 3.30 NVIDIA via Cg compiler
+# Vendor: NVIDIA Corporation
+# Renderer: NVIDIA GeForce GTX 1060 3GB/PCIe/SSE2
+# Profile: CORE
+# ----------------------------------------------------------
+# Resolution Target: 1366x768 horizontal
+# Depth: 24-bit color / 8-bit stencil
+# Pygame SDL Version: 2.28.4
+
+numpy==2.2.6
+pygame==2.6.1
+PyOpenGL==3.1.7
+pyrr==0.10.3
+SoundCard==0.4.3
+pyinstaller==6.18.0
+trimesh==4.11.2
+pillow==12.1.1
+sounddevice==0.5.5
+
+# python -m pip install --upgrade pip
+# Como usar este archivo:
+# python -m pip install -r requirements.txt
+# cuidado ese comando instala las librerias en python global, si quieres usar un entorno virtual,
+# activa el entorno virtual antes de ejecutar el comando.
+# Para crear un entorno virtual:
+# python -m venv venv_rhl_313
+# Para activar el entorno virtual:
+#.\venv_rhl_313\Scripts\Activate.ps1

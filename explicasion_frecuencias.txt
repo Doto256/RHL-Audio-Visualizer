@@ -1,0 +1,70 @@
+# Guía de Frecuencias y Edición de Audio
+
+Este documento explica cómo el motor de audio interpreta el sonido y qué debes editar en el código para cambiar la reacción de los elementos visuales.
+
+## 1. El Espectro de Audio
+
+Todo el procesamiento ocurre en `audio/engine.py` dentro de la función `_actualizar_espectro`. El sistema convierte el audio en una lista de 1024 valores (llamada `norm` o `espectro`), donde:
+*   **Índice 0 (Inicio):** Frecuencias más graves (Bombos, sub-bajos).
+*   **Índice 1023 (Final):** Frecuencias más agudas (Platillos, brillos).
+
+---
+
+## 2. Cómo editar las Estrellas (Graves / Bass)
+
+Las estrellas azules/moradas (`stars_bass`) reaccionan a la energía calculada en la variable `self.ctx.bass_energy`.
+
+**Ubicación:** `audio/engine.py` (Línea ~165 aprox.)
+
+**Código Actual:**
+```python
+# Toma el promedio de las primeras 4 bandas del espectro (0, 1, 2, 3)
+if len(norm) > 4:
+    val = np.mean(norm[:4]) 
+```
+
+**Cómo cambiar la frecuencia:**
+Debes modificar el rango `[:4]`.
+*   **Para que reaccione a Bajos y Medios-Bajos (ej. Bajo eléctrico):** Cambia a `norm[5:20]`.
+*   **Para que reaccione a la Voz (Medios):** Cambia a `norm[20:100]`.
+
+---
+
+## 3. Cómo editar los Platos (Agudos / Highs)
+
+Las estrellas cian/blancas (`stars_high`) y los destellos reaccionan a `self.ctx.high_energy`.
+
+**Ubicación:** `audio/engine.py` (Línea ~178 aprox.)
+
+**Código Actual:**
+```python
+# Calcula el punto de inicio al 75% del espectro
+start_idx = int(len(norm) * 0.75)
+# Toma el promedio desde ese punto hasta el final
+val_h = np.mean(norm[start_idx:])
+```
+
+**Cómo cambiar la frecuencia:**
+Modifica el multiplicador `0.75` (75%).
+*   **Para incluir más medios-agudos (Guitarras, Voces altas):** Baja el número a `0.50` (50%).
+*   **Para que sea muy selectivo (Solo brillos extremos):** Sube el número a `0.90` (90%).
+
+---
+
+## 4. Explicación de las Frecuencias del Túnel
+
+El túnel es especial porque **visualiza todo el espectro a la vez**, enrollado en un círculo.
+
+**Ubicación:** `render/renderer.py` -> método `update()`
+
+**Cómo funciona el mapeo:**
+El túnel dibuja puntos en un círculo. La fórmula matemática asigna frecuencias a ángulos:
+
+1.  **Ángulo 0° (Derecha / 3 en punto):** Aquí comienzan los **Graves** (Índice 0 del espectro).
+2.  **Rotación Anti-horaria:** A medida que recorres el círculo hacia arriba (12 en punto) y hacia la izquierda (9 en punto), las frecuencias van subiendo (Medios).
+3.  **Cierre del Círculo:** Al terminar la vuelta, llegas a los **Agudos**.
+
+**Efecto Visual:**
+*   Si suena un **Bombo**, verás el túnel expandirse en un lado específico del anillo (donde estén los graves en ese momento).
+*   Si suena un **Platillo**, se expandirá el lado opuesto del anillo.
+*   **Nota Importante:** Como el túnel gira constantemente (`self.ctx.giro`), la posición física de los "graves" y "agudos" rota con él, creando ese efecto dinámico de espiral.

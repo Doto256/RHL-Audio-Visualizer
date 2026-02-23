@@ -1,0 +1,9 @@
+# Entorno virtual (Librerías de Python)
+venv_rhl_313/
+
+# Caché de Python
+__pycache__/
+*.pyc
+
+# Configuración de VS Code
+.vscode/
