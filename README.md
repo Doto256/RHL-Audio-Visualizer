@@ -77,7 +77,8 @@ Para sacarle el máximo provecho al RHL, utilizá los siguientes comandos:
 | **Shift + Click** | (En el menú M) **Suma** un nuevo dispositivo a la mezcla actual. |
 | **Click simple** | Selecciona un único dispositivo (reemplaza al anterior). |
 
-> **Tip de experto:** Podés mezclar el audio de tu escritorio con tu micrófono manteniendo `Shift` presionado al seleccionar el segundo dispositivo en el menú `M`.
+> **Tip de experto:** Podés mezclar el audio de tu escritorio con tu micrófono manteniendo `Shift` presionado al seleccionar el segundo dispositivo en el menú `M`. Para dejar un solo dispositivo solo selecciona con click simple.
+
 ---
 
 ## 📂 Estructura del Proyecto
