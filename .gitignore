@@ -7,3 +7,8 @@ __pycache__/
 
 # Configuración de VS Code
 .vscode/
+
+build/
+dist/
+*.spec
+*.lnk
