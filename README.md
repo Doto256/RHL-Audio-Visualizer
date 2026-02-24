@@ -65,6 +65,19 @@ El proyecto depende de las siguientes librerías clave (ver `requirements.txt`):
 [![Descargar RHL](https://img.shields.io/badge/Descargar-RHL_v1.0.0-blue?style=for-the-badge&logo=windows)](https://github.com/Doto256/RHL-Audio-Visualizer/releases/download/v1.0.0/RHl.exe)
 
 > **Nota:** No requiere instalación de Python. Solo descarga y ejecuta el `.exe`.
+
+## ⌨️ Controles y Atajos
+
+Para sacarle el máximo provecho al RHL, utilizá los siguientes comandos:
+
+| Tecla | Acción |
+| :--- | :--- |
+| **Esc** | Abre el panel de configuración (Bloom, Sensibilidad, Colores, etc.). |
+| **M** | Abre el menú de selección de dispositivos de audio. |
+| **Shift + Click** | (En el menú M) **Suma** un nuevo dispositivo a la mezcla actual. |
+| **Click simple** | Selecciona un único dispositivo (reemplaza al anterior). |
+
+> **Tip de experto:** Podés mezclar el audio de tu escritorio con tu micrófono manteniendo `Shift` presionado al seleccionar el segundo dispositivo en el menú `M`.
 ---
 
 ## 📂 Estructura del Proyecto
