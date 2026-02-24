@@ -61,6 +61,10 @@ El proyecto depende de las siguientes librerías clave (ver `requirements.txt`):
     python main.py
     ```
 
+## 📥 Descarga para Windows
+[![Descargar RHL](https://img.shields.io/badge/Descargar-RHL_v1.0.0-blue?style=for-the-badge&logo=windows)](https://github.com/Doto256/RHL-Audio-Visualizer/releases/download/v1.0.0/RHl.exe)
+
+> **Nota:** No requiere instalación de Python. Solo descarga y ejecuta el `.exe`.
 ---
 
 ## 📂 Estructura del Proyecto
